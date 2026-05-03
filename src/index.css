@@ -1,0 +1,329 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap');
+@import "tailwindcss";
+
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    /* margin: 0;
+    padding: 0; */
+}
+
+:root {
+    --cream: #F8F4EF;
+    --sage: #8BAF9A;
+    --sage-d: #5E8470;
+    --sage-l: #C8DDD3;
+    --gold: #C9A96E;
+    --gold-l: #E8D4B0;
+    --charcoal: #2A2F2B;
+    --warm-w: #FDFAF6;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--charcoal);
+    overflow-x: hidden;
+}
+
+.font-display {
+    font-family: 'Cormorant Garamond', serif;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--cream);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--sage);
+    border-radius: 3px;
+}
+
+/* Nav glassmorphism */
+.nav-glass {
+    background: rgba(248, 244, 239, 0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(139, 175, 154, 0.2);
+}
+
+/* Hero gradient orbs */
+.orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(70px);
+    pointer-events: none;
+}
+
+.orb-1 {
+    width: 520px;
+    height: 520px;
+    background: radial-gradient(circle, rgba(139, 175, 154, 0.35) 0%, transparent 70%);
+    top: -80px;
+    right: -100px;
+}
+
+.orb-2 {
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(201, 169, 110, 0.25) 0%, transparent 70%);
+    bottom: 0;
+    left: 10%;
+}
+
+/* Tooth SVG pulse ring */
+@keyframes ping-slow {
+    0% {
+        transform: scale(1);
+        opacity: 0.6;
+    }
+
+    100% {
+        transform: scale(1.45);
+        opacity: 0;
+    }
+}
+
+.ping-ring {
+    animation: ping-slow 2.2s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+/* Service card hover */
+.service-card {
+    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+        box-shadow 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 24px 60px rgba(42, 47, 43, 0.12);
+}
+
+.service-card:hover .service-icon {
+    background: var(--sage);
+}
+
+.service-card:hover .service-icon svg {
+    stroke: white;
+}
+
+/* Stat counter */
+.stat-num {
+    font-variant-numeric: tabular-nums;
+}
+
+/* Testimonial track */
+.testimonial-track {
+    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Image parallax container */
+.parallax-img {
+    will-change: transform;
+}
+
+/* CTA button */
+.btn-primary {
+    background: var(--charcoal);
+    color: var(--cream);
+    transition: background 0.3s, transform 0.2s;
+}
+
+.btn-primary:hover {
+    background: var(--sage-d);
+    transform: translateY(-2px);
+}
+
+.btn-outline {
+    border: 1.5px solid var(--charcoal);
+    color: var(--charcoal);
+    transition: all 0.3s;
+}
+
+.btn-outline:hover {
+    background: var(--charcoal);
+    color: var(--cream);
+    transform: translateY(-2px);
+}
+
+/* Reveal animation */
+.reveal {
+    opacity: 0;
+    transform: translateY(32px);
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Number animation */
+@keyframes count-up {
+    from {
+        opacity: 0;
+        transform: scale(0.85);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Timeline connector */
+.timeline-line {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: linear-gradient(to bottom, transparent, var(--sage-l), transparent);
+    transform: translateX(-50%);
+}
+
+/* Dot pulse nav indicator */
+.nav-dot {
+    transition: all 0.3s;
+}
+
+.nav-dot.active {
+    width: 24px;
+    background: var(--charcoal);
+}
+
+/* Tooth decorative */
+.tooth-deco {
+    position: absolute;
+    opacity: 0.07;
+    pointer-events: none;
+}
+
+.section-tag {
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--sage-d);
+}
+
+/* Form input */
+.form-input {
+    background: white;
+    border: 1px solid rgba(42, 47, 43, 0.15);
+    border-radius: 6px;
+    padding: 12px 16px;
+    width: 100%;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    color: var(--charcoal);
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.form-input:focus {
+    border-color: var(--sage);
+}
+
+/* Footer */
+footer a {
+    transition: color 0.2s;
+}
+
+footer a:hover {
+    color: var(--sage);
+}
+
+/* ── Promo Carousel ── */
+.promo-carousel {
+    position: relative;
+    overflow: hidden;
+    border-radius: 24px;
+}
+
+.promo-track {
+    display: flex;
+    transition: transform 0.7s cubic-bezier(0.77, 0, 0.18, 1);
+}
+
+.promo-slide {
+    flex: 0 0 100%;
+}
+
+.promo-btn {
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(8px);
+    color: white;
+    cursor: pointer;
+    border-radius: 50%;
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.25s, transform 0.2s;
+}
+
+.promo-btn:hover {
+    background: rgba(255, 255, 255, 0.22);
+    transform: scale(1.08);
+}
+
+.promo-dot {
+    height: 5px;
+    border-radius: 100px;
+    border: none;
+    cursor: pointer;
+    transition: width 0.35s, background 0.35s;
+    padding: 0;
+}
+
+@keyframes promo-progress {
+    from {
+        width: 0%;
+    }
+
+    to {
+        width: 100%;
+    }
+}
+
+.progress-bar {
+    animation: promo-progress 5s linear forwards;
+}
+
+/* Mobile menu */
+.menu-overlay {
+    position: fixed;
+    inset: 0;
+    background: var(--cream);
+    z-index: 200;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+}
+
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: clamp(2.8rem, 10vw, 5rem);
+    }
+}
+
+.divider-wave {
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
